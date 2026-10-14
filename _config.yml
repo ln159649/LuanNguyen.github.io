@@ -1,7 +1,7 @@
-title: Your Site Title
-description: A brief description of your site
+title: Luan Nguyen | Data Analyst Portfolio
+description: Data analyst portfolio with SQL, Power BI, Tableau, Excel and Python projects
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://yourusername.github.io" # the base hostname & protocol for your site
+url: "https://ln159649.github.io" # the base hostname & protocol for your site
 theme: jekyll-theme-minimal
 
 # Build settings

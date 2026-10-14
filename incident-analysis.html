@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+	<head>
+		<title>ServiceNow Incident Analysis | Luan Nguyen</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Case study: where resolution delays come from in 24,918 ServiceNow incidents, analyzed with PostgreSQL and Power BI." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Luan Nguyen</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Projects</a></li>
+							<li class="active"><a href="incident-analysis.html">Featured Case Study</a></li>
+							<li><a href="bike-sales.html">Bike Sales</a></li>
+							<li><a href="census-model.html">Income Model</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/luan-nguyen-/" target="_blank" rel="noopener" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/ln159649" target="_blank" rel="noopener" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<section class="post">
+							<header class="major">
+								<span class="date">October 2026</span>
+								<h1>Where Do IT Incident<br />
+								Delays Come From?</h1>
+								<p>A ServiceNow incident analysis with PostgreSQL and Power BI.<br />
+								Tools: SQL (CTEs, window functions, percentiles), Power BI, DAX.</p>
+							</header>
+
+							<div class="image main"><img src="images/dashboard_overview.png" alt="Power BI dashboard, Overview page: four KPI cards, three bar charts and a recommendation" /></div>
+
+							<h2>The question</h2>
+							<p>When IT incidents are resolved, where does the time go, and what is the most promising place to cut delays? This was written for an IT service desk manager deciding where to focus process improvements.</p>
+
+							<h2>The data</h2>
+							<p>The <a href="https://archive.ics.uci.edu/dataset/498/incident+management+process+enriched+event+log" target="_blank" rel="noopener">Incident management process enriched event log</a> from the UCI Machine Learning Repository (CC BY 4.0) is an anonymized audit log from a ServiceNow instance: 141,712 events across 24,918 incidents and 36 attributes, with incidents opened between February 2016 and February 2017. Each row is one update to an incident, so I collapsed it to one row per incident using the update counter.</p>
+
+							<h2>Approach</h2>
+							<ol>
+								<li>Loaded the raw CSV as text, then cleaned it: <code>?</code> became NULL, day/month/year timestamps were parsed, and boolean flags were converted.</li>
+								<li>Built an incident-level view with each incident's final state and its resolution time in hours.</li>
+								<li>Analyzed resolution time by priority, the distribution of resolution times, reassignments, SLA by assignment group, and time spent in each state with the <code>LEAD</code> window function.</li>
+								<li>Built a two-page Power BI dashboard and checked every measure against the SQL output.</li>
+							</ol>
+
+							<h2>Key findings</h2>
+
+							<h3>Most incidents resolve quickly, but a long tail is slow</h3>
+							<p>Of 23,362 resolved incidents, 51.7% were resolved within 24 hours and 22.9% took more than 7 days. Averages are far above medians, so I report medians and percentiles.</p>
+
+							<h3>Reassignments go with much slower resolution</h3>
+							<p>48.6% of resolved incidents were reassigned at least once, and reassigned incidents account for 72.6% of total elapsed resolution time. Median resolution time rises from 0.7 hours with no reassignments to 50.6, 167.8 and 336.6 hours with 1-2, 3-5 and 6+ reassignments. Of the 538 incidents reassigned six or more times, about 80% took longer than a week. The same pattern holds within Moderate priority alone, so it is not just a priority mix effect.</p>
+
+							<h3>SLA attainment falls as reassignments rise</h3>
+							<p>Across resolved incidents, SLA was met 77.1%, 52.5%, 28.8% and 8.6% of the time for 0, 1-2, 3-5 and 6+ reassignments. Overall, 63.4% of all incidents met their SLA.</p>
+
+							<h3>Much of the time is spent waiting</h3>
+							<p>Excluding the post-resolution wait before auto-close, the largest shares of time are Active (18.0%), Awaiting User Info (15.7%) and New, before work starts (13.8%). Awaiting Vendor is slow per event but rare (3.4%).</p>
+
+							<h3>Higher-priority incidents were slower at the median</h3>
+							<div class="table-wrapper">
+								<table>
+									<thead>
+										<tr><th>Priority</th><th>Resolved incidents</th><th>Median hours</th><th>90th percentile hours</th></tr>
+									</thead>
+									<tbody>
+										<tr><td>1 - Critical</td><td>270</td><td>80.2</td><td>616.4</td></tr>
+										<tr><td>2 - High</td><td>408</td><td>38.2</td><td>381.6</td></tr>
+										<tr><td>3 - Moderate</td><td>22,010</td><td>21.6</td><td>374.6</td></tr>
+										<tr><td>4 - Low</td><td>674</td><td>5.0</td><td>502.3</td></tr>
+									</tbody>
+								</table>
+							</div>
+							<p>Critical and High are small groups, so I treat these figures as indicative.</p>
+
+							<div class="image main"><img src="images/dashboard_drivers.png" alt="Power BI dashboard, Drivers page: priority table, time spent in each state and lowest SLA groups" /></div>
+
+							<h2>Recommendation</h2>
+							<p>The reassignment pattern is consistent, but there are several possible explanations, including that harder incidents get reassigned more. When the cause is unclear, a low-risk test beats a large change. I recommend piloting better first-time routing in one assignment group and comparing reassignment rates and resolution times with a similar group. If it works, scale it. Secondary levers are capturing the information needed from users earlier and shortening the time incidents spend in New before work starts.</p>
+
+							<h2>Limitations</h2>
+							<ul>
+								<li><strong>Association, not causation.</strong> Harder incidents may be reassigned more often.</li>
+								<li><strong>SLA overlaps with timing.</strong> SLA targets depend on elapsed time, so the SLA result largely restates the resolution-time result.</li>
+								<li><strong>Unresolved incidents.</strong> 1,556 incidents (6.2%) were never resolved and are excluded from timing metrics.</li>
+								<li><strong>No reliable monthly trend.</strong> About 99% of incidents were opened between February and May 2016, which looks like an extraction effect.</li>
+								<li><strong>Elapsed time is not effort.</strong> Hours are calendar time between events, not staff time.</li>
+								<li><strong>Anonymized groups.</strong> Assignment groups differ in workload mix, so the SLA ranking shows where to investigate, not who performs worst.</li>
+							</ul>
+
+							<ul class="actions">
+								<li><a href="https://github.com/ln159649/servicenow-incident-analysis" target="_blank" rel="noopener" class="button primary">SQL and Dashboard on GitHub</a></li>
+								<li><a href="index.html" class="button">Back to Projects</a></li>
+							</ul>
+						</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Location</h3>
+								<p>Baton Rouge, LA 70817</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="tel:+12252842941">(225) 284-2941</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:Luannguy12@gmail.com">Luannguy12@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/luan-nguyen-/" target="_blank" rel="noopener" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/ln159649" target="_blank" rel="noopener" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Luan Nguyen</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

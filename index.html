@@ -4,11 +4,12 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="en">
 	<head>
-		<title>Luan Nguyen Project Portfolio</title>
+		<title>Luan Nguyen | Data Analyst Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Data analyst portfolio: SQL, Power BI, Tableau, Excel and Python projects, including a ServiceNow incident analysis." />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
@@ -20,8 +21,8 @@
 				<!-- Intro -->
 					<div id="intro">
 						<h1>Luan Nguyen</h1>
-						<h1>Portfolio</h1>
-						<p>Data Analyst skilled in SQL, Tableau, Excel, and Python.</p>
+						<h1>Data Analyst Portfolio</h1>
+						<p>SQL, Power BI, Tableau, Excel and Python, turning messy data into decisions.</p>
 						<ul class="actions">
 							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
@@ -29,17 +30,20 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">Welcome</a>
+						<a href="index.html" class="logo">Luan Nguyen</a>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="index.html">Data Project</a></li>
+							<li class="active"><a href="index.html">Projects</a></li>
+							<li><a href="incident-analysis.html">Featured Case Study</a></li>
+							<li><a href="bike-sales.html">Bike Sales</a></li>
+							<li><a href="census-model.html">Income Model</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href=https://www.linkedin.com/in/luan-nguyen-/ target="_blank" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
-							<li><a href="https://github.com/ln159649" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.linkedin.com/in/luan-nguyen-/" target="_blank" rel="noopener" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/ln159649" target="_blank" rel="noopener" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
@@ -49,68 +53,66 @@
 						<!-- Featured Post -->
 							<article class="post featured">
 								<header class="major">
-									<h2><a href="https://github.com/ln159649" target="_blank">Project #1</a></h2>
-									<p>Project Description</p>
+									<span class="date">Featured project</span>
+									<h2><a href="incident-analysis.html">Where Do IT Incident Delays Come From?</a></h2>
+									<p>A ServiceNow incident analysis in PostgreSQL and Power BI: 24,918 incidents, 141,712 events, and one clear pattern in what slows resolution down.</p>
 								</header>
-								<a href="https://github.com/ln159649" target="_blank" class="image main"><img src="images/pic01.jpg" alt="" /></a>
+								<a href="incident-analysis.html" class="image main"><img src="images/dashboard_overview.png" alt="Power BI dashboard overview showing KPI cards and charts of resolution time, SLA attainment and resolution-time buckets by number of reassignments" /></a>
+								<p>Incidents reassigned between teams are about half of all tickets but account for nearly three quarters of elapsed resolution time. The median rises from under an hour with no reassignments to about two weeks with six or more, and SLA attainment falls from 77% to 9%. The data shows an association, not proof of cause, so the recommendation is a small pilot of better first-time routing before any wider change.</p>
 								<ul class="actions special">
-									<li><a href="https://github.com/ln159649" target="_blank" class="button large">View Project</a></li>
+									<li><a href="incident-analysis.html" class="button large">Read the Case Study</a></li>
+									<li><a href="https://github.com/ln159649/servicenow-incident-analysis" target="_blank" rel="noopener" class="button large">View on GitHub</a></li>
 								</ul>
 							</article>
 
+						<!-- Case studies -->
 							<header class="major">
-									<h2><a href="https://github.com/ln159649" target="_blank">Project #2</a></h2>
-									<p>Project Description</p>
-								</header>
-								<a href="https://github.com/ln159649" target="_blank" class="image main"><img src="images/pic01.jpg" alt="" /></a>
-								<ul class="actions special">
-									<li><a href="https://github.com/ln159649" target="_blank" class="button large">View Project</a></li>
-								</ul>
-							</article>
-
-						<!-- Posts -->
+								<h2>More Case Studies</h2>
+							</header>
 							<section class="posts">
-
 								<article>
-									<header>
-										<h2><a href="https://github.com/ln159649/SQL" target="_blank">SQL Portfolio<br /> </a> </h2>
-									</header>
-									<a href="https://github.com/ln159649/SQL" target="_blank" class="image fit"><img src="images/MySQL-Logo-500x281.jpg" alt="" /></a>
-									<ul class="actions special">
-										<li><a href="https://github.com/ln159649/SQL" target="_blank" class="button">View Project</a></li>
-									</ul>
+									<header><h2><a href="bike-sales.html">Who Buys Bikes?</a></h2></header>
+									<a href="bike-sales.html" class="image fit"><img src="images/bike_purchase_rates.png" alt="Charts of bike purchase rate by customer group" /></a>
+									<p>Excel pivot tables and a dashboard on 1,000 customers. Cars owned, age and commute predict buying; income does not.</p>
+									<ul class="actions special"><li><a href="bike-sales.html" class="button">Read More</a></li></ul>
 								</article>
-
 								<article>
-									<header>
-										<h2><a href="https://public.tableau.com/app/profile/luan.nguyen7267/vizzes" target="_blank">Tableau Portfolio<br /> </a> </h2>
-									</header>
-									<a href="https://public.tableau.com/app/profile/luan.nguyen7267/vizzes" target="_blank" class="image fit"><img src="images/Tableau-Logo.png" alt="" /></a>
-									<ul class="actions special">
-										<li><a href="https://public.tableau.com/app/profile/luan.nguyen7267/vizzes" target="_blank" class="button">View Project</a></li>
-									</ul>
+									<header><h2><a href="census-model.html">Predicting Income</a></h2></header>
+									<a href="census-model.html" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+									<p>A Python logistic regression on census data, and why 75% accuracy was not as good as it looked.</p>
+									<ul class="actions special"><li><a href="census-model.html" class="button">Read More</a></li></ul>
 								</article>
+							</section>
 
+							<!-- Practice -->
+							<header class="major">
+								<h2>Practice and Skills</h2>
+							</header>
+							<section class="posts">
 								<article>
-									<header>
-										<h2><a href="https://github.com/ln159649/Excel">Excel Portfolio<br /> </a> </h2>
-									</header>
-									<a href="https://github.com/ln159649/Excel" target="_blank" class="image fit"><img src="images/Microsoft-Excel-Logo-500x313.jpg" alt="" /></a>
-									<ul class="actions special">
-										<li><a href="https://github.com/ln159649/Excel" target="_blank" class="button">View Projects</a></li>
-									</ul>
+									<header><h2><a href="https://github.com/ln159649/SQL" target="_blank" rel="noopener">SQL</a></h2></header>
+									<a href="https://github.com/ln159649/SQL" target="_blank" rel="noopener" class="image fit"><img src="images/MySQL-Logo-500x281.jpg" alt="MySQL logo" /></a>
+									<p>Joins, CTEs, window functions and temp tables on sales, COVID, student-habit and Pokedex data. Guided practice.</p>
+									<ul class="actions special"><li><a href="https://github.com/ln159649/SQL" target="_blank" rel="noopener" class="button">View on GitHub</a></li></ul>
 								</article>
-
 								<article>
-									<header>
-										<h2><a href="https://github.com/ln159649/Python" target="_blank">Python Portfolio<br /> </a> </h2>
-									</header>
-									<a href="https://github.com/ln159649/Python" target="_blank" class="image fit"><img src="images/Python-Logo-500x313.jpg" alt="" /></a>
-									<ul class="actions special">
-										<li><a href="https://github.com/ln159649/Python" target="_blank" class="button">View Project</a></li>
-									</ul>
+									<header><h2><a href="https://github.com/ln159649/Python" target="_blank" rel="noopener">Python</a></h2></header>
+									<a href="https://github.com/ln159649/Python" target="_blank" rel="noopener" class="image fit"><img src="images/Python-Logo-500x313.jpg" alt="Python logo" /></a>
+									<p>Web scraping with BeautifulSoup, data cleaning with pandas, and exploratory charts on ultramarathon results.</p>
+									<ul class="actions special"><li><a href="https://github.com/ln159649/Python" target="_blank" rel="noopener" class="button">View on GitHub</a></li></ul>
 								</article>
-
+								<article>
+									<header><h2><a href="https://github.com/ln159649/Excel" target="_blank" rel="noopener">Excel</a></h2></header>
+									<a href="https://github.com/ln159649/Excel" target="_blank" rel="noopener" class="image fit"><img src="images/Microsoft-Excel-Logo-500x313.jpg" alt="Microsoft Excel logo" /></a>
+									<p>Power Query cleaning, pivot tables, slicers and dashboards.</p>
+									<ul class="actions special"><li><a href="https://github.com/ln159649/Excel" target="_blank" rel="noopener" class="button">View on GitHub</a></li></ul>
+								</article>
+								<article>
+									<header><h2><a href="https://public.tableau.com/app/profile/luan.nguyen7267/vizzes" target="_blank" rel="noopener">Tableau</a></h2></header>
+									<a href="https://public.tableau.com/app/profile/luan.nguyen7267/vizzes" target="_blank" rel="noopener" class="image fit"><img src="images/Tableau-Logo.png" alt="Tableau logo" /></a>
+									<p>Published dashboards on Tableau Public.</p>
+									<ul class="actions special"><li><a href="https://public.tableau.com/app/profile/luan.nguyen7267/vizzes" target="_blank" rel="noopener" class="button">View on Tableau Public</a></li></ul>
+								</article>
 							</section>
 
 					</div>
@@ -120,21 +122,21 @@
 						<section class="split contact">
 							<section class="alt">
 								<h3>Location</h3>
-								<p>Baton Rouge, LA 70817<br /> </p>
+								<p>Baton Rouge, LA 70817</p>
 							</section>
 							<section>
 								<h3>Phone</h3>
-								<p><a href="#">(225) 284-2941</a></p>
+								<p><a href="tel:+12252842941">(225) 284-2941</a></p>
 							</section>
 							<section>
 								<h3>Email</h3>
-								<p><a href="#">Luannguy12@gmail.com</a></p>
+								<p><a href="mailto:Luannguy12@gmail.com">Luannguy12@gmail.com</a></p>
 							</section>
 							<section>
 								<h3>Social</h3>
 								<ul class="icons alt">
-									<li><a href=https://www.linkedin.com/in/luan-nguyen-/ target="_blank" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
-									<li><a href="https://github.com/ln159649" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.linkedin.com/in/luan-nguyen-/" target="_blank" rel="noopener" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/ln159649" target="_blank" rel="noopener" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
 							</section>
 						</section>
@@ -142,6 +144,7 @@
 
 				<!-- Copyright -->
 					<div id="copyright">
+						<ul><li>&copy; Luan Nguyen</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 					</div>
 
 			</div>

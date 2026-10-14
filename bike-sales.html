@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+	<head>
+		<title>Bike Sales Analysis | Luan Nguyen</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Excel analysis of 1,000 customers: who buys bikes, with pivot tables and a dashboard." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Luan Nguyen</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Projects</a></li>
+							<li class="active"><a href="bike-sales.html">Bike Sales</a></li>
+							<li><a href="census-model.html">Income Model</a></li>
+							<li><a href="incident-analysis.html">Featured Case Study</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/luan-nguyen-/" target="_blank" rel="noopener" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/ln159649" target="_blank" rel="noopener" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<section class="post">
+
+<header class="major">
+<span class="date">Excel</span>
+<h1>Who Buys Bikes?</h1>
+<p>Cleaning 1,000 customer records and finding which groups are most likely to buy.<br />Tools: Excel, pivot tables, slicers, dashboard.</p>
+</header>
+<div class="image main"><img src="images/bike_purchase_rates.png" alt="Bar charts of bike purchase rate by cars owned, age bracket and commute distance" /></div>
+<h2>The question</h2>
+<p>A bike shop has data on 1,000 customers. Which customer characteristics go with buying a bike, so marketing can focus on the right groups?</p>
+<h2>What I did</h2>
+<ol>
+<li>Cleaned the raw sheet: removed duplicate rows (26 duplicates removed, 1,026 raw rows became 1,000), standardized labels (for example M/S to Married/Single, M/F to Male/Female).</li>
+<li>Added an age bracket column (0-30, 31-54, 55+).</li>
+<li>Built three pivot tables with slicers and a final one-page dashboard.</li>
+</ol>
+<h2>Findings</h2>
+<ul>
+<li><strong>48.1% of customers bought a bike</strong> (481 of 1,000).</li>
+<li><strong>Cars owned matters.</strong> Customers with 0 or 1 car bought at 61% and 57%. With 2 or more cars the rate drops to 36-39%.</li>
+<li><strong>Middle-aged customers buy most.</strong> 54% of ages 31-54 bought, compared with 36% of those 30 and under and 32% of those 55 and over.</li>
+<li><strong>Short and mid commutes buy more.</strong> Customers commuting under a mile (55%) or 2-5 miles (59%) bought more than those commuting 10+ miles (30%).</li>
+<li><strong>Income barely matters.</strong> Purchase rates were 47%, 51% and 47% across low, middle and high income groups, so targeting by income alone would not help.</li>
+<li>By region, the Pacific region led (59%) versus North America (43%).</li>
+</ul>
+<h2>Caveats</h2>
+<p>These are rates from a sample of 1,000. Some groups are small (for example, 59 customers with 4 cars), and the data shows association only. The dashboard in the workbook shows the same pivots as interactive charts.</p>
+<ul class="actions">
+<li><a href="https://github.com/ln159649/Excel" target="_blank" rel="noopener" class="button primary">Workbook on GitHub</a></li>
+<li><a href="index.html" class="button">Back to Projects</a></li>
+</ul>
+						</section>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Location</h3>
+								<p>Baton Rouge, LA 70817</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="tel:+12252842941">(225) 284-2941</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:Luannguy12@gmail.com">Luannguy12@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/luan-nguyen-/" target="_blank" rel="noopener" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/ln159649" target="_blank" rel="noopener" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Luan Nguyen</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
