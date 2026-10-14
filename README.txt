@@ -1,7 +1,7 @@
 Luan Nguyen portfolio (Massively template by HTML5 UP, CC BY 3.0, see LICENSE.txt)
 
 Pages: index.html, incident-analysis.html, bike-sales.html, census-model.html
-Put in your site's images/ folder: dashboard_overview.png, dashboard_drivers.png (your Power BI
+Images: all included in images/
 screenshots) and bike_purchase_rates.png (included). Pages also use pic02.jpg and the logo images
 from your existing images/ folder.
 code/ holds corrected files for your GitHub repos: Sales_Orders_Analytics.sql,
